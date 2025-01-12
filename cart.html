@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="C:\Users\ANNAQOLBIE\OneDrive\Desktop\Christy Ng\css\cart.css">
+    <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="js/script.js" defer></script>
+    <title>Shopping Cart</title>
+    <style>
+        body {
+            background: url('images/StoreChristy\ Ng.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow-y: auto;
+        }
+
+    </style>
+</head>
+<body>
+<header class="navbar">
+    <div class="logo">
+        <img src="images/Logo.jpg" alt="Christy Ng Logo" class="logo-img">
+        <h1>Christy Ng</h1>
+    </div>
+    <nav>
+        <a href="index.html"><i class="fa fa-home"></i> Home</a>
+        <a href="about.html"><i class="fa fa-info-circle"></i> About Us</a>
+        <a href="products.html"><i class="fa fa-shopping-bag"></i> Products</a>
+        <a href="cart.html" id="cartLink"><i class="fa fa-shopping-cart"></i> Cart (<span id="cartCount">0</span>)</a>
+        <a href="contact.html"><i class="fa fa-envelope"></i> Contact Us</a>
+    </nav>
+</header>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1 style="text-align: center; color: white;">Your Cart</h1>
+<div id="cartItems"></div>
+
+<div class="cart-summary">
+    <p>Total: RM <span id="totalAmount">0.00</span></p>
+    <button id="checkoutButton" onclick="checkout()">Proceed to Checkout</button>
+</div>
+<br>
+<audio controls>
+    <source src="c:\Users\ANNAQOLBIE\OneDrive\Desktop\Christy Ng\images\lofi song.m4a" type="audio/ogg">
+    <source src="c:\Users\ANNAQOLBIE\OneDrive\Desktop\Christy Ng\images\lofi song.m4a" type="audio/mpeg">
+  </audio>
+<br>
+
+<h4><mark>&#127900; You Can Listen To This Sound While Making Decision. &#127900;</mark></h4>
+<button onclick="this.innerHTML=Date()">Clock</button>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<footer>© 2024 Christy Ng Handbags | All Rights Reserved</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        displayCart();
+        updateCartCount();
+    });
+
+    function displayCart() {
+        let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+        let cartContainer = document.getElementById('cartItems');
+        let totalAmount = 0;
+        cartContainer.innerHTML = '';
+
+        if (cartItems.length === 0) {
+            cartContainer.innerHTML = '<p style="color: white;">Your cart is empty!</p>';
+        } else {
+            cartItems.forEach((item, index) => {
+                let itemDiv = document.createElement('div');
+                itemDiv.classList.add('cart-item');
+                itemDiv.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" onerror="this.src='images/placeholder.jpg'">
+                    <p>${item.name}</p>
+                    <p>RM ${item.price.toFixed(2)}</p>
+                    <button onclick="removeFromCart(${index})">Remove</button>
+                `;
+                cartContainer.appendChild(itemDiv);
+                totalAmount += item.price;
+            });
+            document.getElementById('totalAmount').textContent = totalAmount.toFixed(2);
+        }
+        document.getElementById('checkoutButton').disabled = cartItems.length === 0;
+    }
+
+    function removeFromCart(index) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        displayCart();
+        updateCartCount();
+    }
+
+    function checkout() {
+        if (confirm('Are you sure you want to checkout?')) {
+            localStorage.removeItem('cart');
+            window.location.href = 'order-successful.html';
+        }
+    }
+
+    function updateCartCount() {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        document.getElementById('cartCount').textContent = cart.length;
+    }
+</script>
+</body>
+</html>

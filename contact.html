@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="C:\Users\ANNAQOLBIE\OneDrive\Desktop\Christy Ng\css\contact.css">
+		   <link rel="stylesheet" 
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Contact Us - Christy Ng</title>
+ 
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">
+            <img src="images/Logo.jpg" alt="Christy Ng Logo" class="logo-img" style="width: 50px; vertical-align: middle;">
+            <h1 style="display: inline-block; margin-left: 10px;">Christy Ng</h1>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="products.html">Products</a>
+            <a href="cart.html" id="cartLink">Cart (<span id="cartCount">0</span>)</a>
+            <a href="contact.html">Contact Us</a>
+            
+        </nav>
+    </header>
+<br>
+<br>
+    <!-- Contact Form Section -->
+    <div class="contact-container">
+        <h1>Contact Us</h1>
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" rows="5" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+        <p class="success-message" id="successMessage">Thank you! Your message has been sent successfully.</p>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <footer>© 2024 Christy Ng Handbags | All Rights Reserved</footer>
+
+    <script>
+        // Form Submission Logic with Validation and Success Message
+        document.getElementById('contactForm').onsubmit = function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (name === '' || email === '' || message === '') {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            document.getElementById('successMessage').style.display = 'block';
+
+            setTimeout(() => {
+                document.getElementById('successMessage').style.display = 'none';
+                document.getElementById('contactForm').reset();
+            }, 5000);
+        };
+
+        // Update Cart Count on Navbar
+        function updateCartCount() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            document.getElementById('cartCount').textContent = cart.length;
+        }
+        updateCartCount();
+    </script>
+</body>
+</html>

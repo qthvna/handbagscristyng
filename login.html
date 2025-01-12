@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="C:\Users\ANNAQOLBIE\OneDrive\Desktop\Christy Ng\css\login.css">
+    <title>Login Page</title>
+    
+    <style>
+        /* Full Background Image - Clear HD */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('images/StoreChristy\ Ng.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar (Logo and Title) -->
+    <div class="navbar">
+        <img src="images/Logo.jpg" alt="Christy Ng Logo" class="logo-img">
+        <h1>Christy Ng</h1>
+    </div>
+
+    <!-- Login Container -->
+    <div id="loginContainer" class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="text" id="username" class="input-field" placeholder="Username" required><br>
+            <input type="password" id="password" class="input-field" placeholder="Password" required><br>
+            <button type="submit" class="btn">Login</button>
+        </form>
+        <p id="errorMsg" class="error" style="display:none;"></p>
+    </div>
+
+    <script>
+        // Dummy credentials for login validation
+        const validUsername = 'user';
+        const validPassword = 'password';
+
+        // Get elements
+        const loginForm = document.getElementById('loginForm');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        const loginContainer = document.getElementById('loginContainer');
+        const errorMsg = document.getElementById('errorMsg');
+
+        // Handle login form submission
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting the default way
+
+            const username = usernameInput.value;
+            const password = passwordInput.value;
+
+            if (username === validUsername && password === validPassword) {
+                // Redirect to index.html after successful login
+                window.location.href = 'index.html'; // Redirect to your main page
+            } else {
+                // Show error message
+                errorMsg.style.display = 'block';
+                errorMsg.innerText = 'Invalid username or password';
+            }
+        });
+    </script>
+
+</body>
+</html>
