@@ -1,0 +1,79 @@
+<script>
+
+		let cart = [
+    { name: 'Alesso Large Hobo Bag', price: 399, image: 'images/Bag1.jpg' },
+    { name: 'Russo Monogram Black Tote Bag', price: 279, image: 'images/Bag2.jpg' },
+    { name: 'Julieta Tweed Hobo Bag', price: 349, image: 'images/Bag3.jpg' },
+    { name: 'Lisbeth Shoulder Bag', price: 269, image: 'images/Bag4.jpg' },
+    { name: 'Russo Medium Tote Bag', price: 289, image: 'images/Bag5.jpg' },
+    { name: 'Russo Monogram Tote Bag', price: 319, image: 'images/Bag6.jpg' },
+    { name: 'Sling Bag', price: 199, image: 'images/Bag7.png' },
+    { name: 'Tote Bag', price: 249, image: 'images/Bag8.jpg' },
+    { name: 'Poppy Large Nylon Tote', price: 329, image: 'images/Bag9.jpg' },
+    { name: 'Russo Medium Black Tote Bag', price: 309, image: 'images/Bag10.jpg' },
+    { name: 'Janet Mini Top Handle Bag', price: 259, image: 'images/Bag11.jpg' },
+    { name: 'Natsuki Tote Bag', price: 299, image: 'images/Bag12.jpg' },
+    { name: 'Commune SS24 Mini Canvas Bag', price: 229, image: 'images/Bag13.jpg' },
+    { name: 'Fillmore SS24 Mini Canvas', price: 239, image: 'images/Bag14.jpg' }
+];
+
+localStorage.setItem('cart', JSON.stringify(cart));
+
+// Function to add item to the cart
+function addToCart(productName, productPrice) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push({ name: productName, price: productPrice });
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+    alert(`${productName} added to cart!`);
+}
+
+// Update the cart count in the navbar
+function updateCartCount() {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    document.getElementById('cartCount').textContent = cart.length;
+}
+
+// Display cart items on the cart page
+function displayCart() {
+    let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    let cartContainer = document.getElementById('cartItems');
+    let totalAmount = 0;
+    cartContainer.innerHTML = '';
+
+    if (cartItems.length === 0) {
+        cartContainer.innerHTML = '<p>Your cart is empty!</p>';
+    } else {
+        cartItems.forEach((item, index) => {
+            let itemDiv = document.createElement('div');
+            itemDiv.classList.add('cart-item');
+            itemDiv.innerHTML = `
+                <p>${item.name} - RM ${item.price}</p>
+                <button onclick="removeFromCart(${index})">Remove</button>
+            `;
+            cartContainer.appendChild(itemDiv);
+            totalAmount += item.price;
+        });
+        document.getElementById('totalAmount').textContent = totalAmount;
+    }
+
+    document.getElementById('checkoutButton').disabled = cartItems.length === 0;
+}
+
+// Remove an item from the cart
+function removeFromCart(index) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.splice(index, 1); // Remove the item at the specified index
+    localStorage.setItem('cart', JSON.stringify(cart));
+    displayCart(); // Refresh the cart display
+    updateCartCount(); // Update cart count in the navbar
+}
+
+// Checkout function
+function checkout() {
+    if (confirm('Are you sure you want to checkout?')) {
+        localStorage.removeItem('cart'); // Clear the cart
+        window.location.href = 'order-successful.html'; // Redirect to a success page
+    }
+}
+</script>
