@@ -1,0 +1,255 @@
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    overflow-x: hidden;  /* Prevent horizontal overflow */
+}
+
+/* Navbar Styling (Position Fix & Centered Links) */
+.navbar {
+    display: flex;
+    justify-content: flex-start;  /* Align navbar to the left */
+    align-items: center;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+    position: fixed;
+    top: 0;
+    left: 0;  /* Ensures navbar starts at the left side */
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo Styling */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Logo Image Styling (Circular) */
+.logo-img {
+    width: 50px;  /* Adjust to fit the header size */
+    height: 50px;
+    border-radius: 50%; /* Make the logo circular */
+    object-fit: cover; /* Ensure the logo fits properly within the circle */
+}
+
+/* Title Styling (Italic Font) */
+.navbar h1 {
+    font-size: 28px;
+    color: white;
+    margin: 0;
+    font-style: italic; /* Italicize the title */
+}
+
+/* Navigation Styling */
+.navbar nav {
+    display: flex;
+    justify-content: flex-start;  /* Align navigation items to the left */
+    gap: 10px;
+    flex-wrap: wrap;  /* Ensures links wrap on smaller screens */
+    margin-left: 380px;  /* Provides space between the logo and nav links */
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    align-items: right;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255,255,255,0.8);
+} 
+        
+        
+        /* Importing Custom Font */
+        @font-face {
+            font-family: 'Bake Soda';
+            src: url('font/Bake Soda.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            height: 100vh;
+            background: url('images\StoreChristy Ng.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            color: white;
+            overflow-y: scroll; /* Ensures scrolling if content overflows */
+        }
+
+        /* Dark Overlay for readability (Behind Text Only) */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0; /* Keeps the overlay behind */
+        }
+
+     /* Title Styling (Italic Font) */
+.navbar h1 {
+    font-size: 28px;
+    color: white;
+    margin: 0;
+    font-style: italic; /* Italicize the title */
+}
+
+/* Navigation Styling */
+.navbar nav {
+    display: flex;
+    justify-content: flex-start;  /* Align navigation items to the left */
+    gap: 10px;
+    flex-wrap: wrap;  /* Ensures links wrap on smaller screens */
+    margin-left: 380px;  /* Provides space between the logo and nav links */
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    align-items: right;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255,255,255,0.8);
+}
+
+/* Hero Section Styling */
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;  /* Full height */
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    margin-top: 80px;  /* Ensure space below fixed navbar */
+}
+
+
+        h1 {
+            font-size: 2rem;
+            font-family: 'Bake Soda', sans-serif;
+            position: relative;
+            z-index: 2;
+        }
+
+        .founder-image {
+            width: 180px;
+            border-radius: 50%;
+            border: 5px solid #ff758c;
+            object-fit: cover;
+            animation: fadeInZoom 2s ease-in-out;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Making the P Text More Visible */
+        p {
+            font-family: 'Bake Soda', sans-serif;
+            font-size: 1rem;
+            font-weight: bold;
+            font-style: italic;
+            padding: 30px;
+            border-radius: 15px;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+            line-height: 1.6;
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for better readability */
+            display: inline-block;
+            max-width: 80%;
+            margin: 20px auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Animation for image */
+        @keyframes fadeInZoom {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for better readability */
+}
+
+td, th {
+  border: 1px solid black;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #efa2a2;
+}
+
+.social-links img {
+width: 50px; 
+height: 50px; 
+border-radius: 50%; 
+transition: transform 0.3s ease; 
+}
+
+.social-links img:hover {
+transform: scale(1.1); 
+}
+
+.social-links {
+display: flex;
+justify-content: center;
+gap: 10px; 
+margin: 20px 0;
+}
+
+.center-video {
+display: block;
+margin: 0 auto;
+}
+
+/* Footer Styling - Matching Navbar */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 15px 0;
+    background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+    text-align: center;
+    color: white;
+}

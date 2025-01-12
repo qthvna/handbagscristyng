@@ -1,0 +1,142 @@
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    overflow-x: hidden;  /* Prevent horizontal overflow */
+}
+
+/* Navbar Styling (Position Fix & Centered Links) */
+.navbar {
+    display: flex;
+    justify-content: flex-start;  /* Align navbar to the left */
+    align-items: center;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+    position: fixed;
+    top: 0;
+    left: 0;  /* Ensures navbar starts at the left side */
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo Styling */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Logo Image Styling (Circular) */
+.logo-img {
+    width: 50px;  /* Adjust to fit the header size */
+    height: 50px;
+    border-radius: 50%; /* Make the logo circular */
+    object-fit: cover; /* Ensure the logo fits properly within the circle */
+}
+
+/* Title Styling (Italic Font) */
+.navbar h1 {
+    font-size: 28px;
+    color: white;
+    margin: 0;
+    font-style: italic; /* Italicize the title */
+}
+
+/* Navigation Styling */
+.navbar nav {
+    display: flex;
+    justify-content: flex-start;  /* Align navigation items to the left */
+    gap: 10px;
+    flex-wrap: wrap;  /* Ensures links wrap on smaller screens */
+    margin-left: 380px;  /* Provides space between the logo and nav links */
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    align-items: right;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255,255,255,0.8);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background: url('images/celebration.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+}
+
+.navbar {
+    background-color: #ff758c;
+    padding: 10px 0;
+}
+
+.navbar a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    margin-top: 50px;
+    font-size: 48px;
+    color: #ff758c;
+}
+
+p {
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+.celebration {
+    font-size: 100px;
+    margin: 20px 0;
+}
+
+.continue-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color:#ff758c ;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: background 0.3s ease;
+}
+
+.continue-btn:hover {
+    background-color: #ff7eb3;
+}
+
+        /* Footer Styling - Matching Navbar */
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            padding: 15px 0;
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            text-align: center;
+            color: white;
+            }

@@ -1,0 +1,96 @@
+        /* General Reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column; /* Stack items vertically */
+        }
+
+        /* Full Background Image - Clear HD */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('images/StoreChristy\ Ng.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            color: white;
+        }
+
+        /* Navbar (Logo and Title) Styling */
+        .navbar {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 40px; /* Space between navbar and login form */
+        }
+
+        .logo-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .navbar h1 {
+            font-size: 28px;
+            color: white;
+            font-style: italic;
+        }
+
+        /* Login Form Styling */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 76px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px; /* Set a maximum width for the container */
+        }
+
+        .login-container h2 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #ff7eb3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #ff758c;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+        }
