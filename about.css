@@ -243,6 +243,26 @@ display: block;
 margin: 0 auto;
 }
 
+p {
+    font-family: 'Tahoma', Times, serif;
+    color: white;
+    font-size: 18px;
+} 
+
+ul {
+
+ font-family: 'Tahoma',  Verdana, sans-serif;
+ font-size: 16px;
+ text-align: center;
+ color: white;
+
+}
+
+li {
+
+  text-align: center;
+}
+
 /* Footer Styling - Matching Navbar */
 footer {
     position: fixed;
